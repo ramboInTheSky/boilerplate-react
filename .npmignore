@@ -1,0 +1,7 @@
+src
+manual
+.babelrc
+.editorconfig
+.eslintignore
+.eslintrc.yml
+esdoc.json

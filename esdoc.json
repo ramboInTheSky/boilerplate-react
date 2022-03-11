@@ -1,0 +1,20 @@
+
+{
+  "source": "./src",
+  "destination": "./static/docs",
+  "plugins": [
+    {
+      "name": "esdoc-es7-plugin"
+    }
+  ],
+  "coverage": true,
+  "test": {
+    "source": "./src"
+  },
+  "manual": {
+    "installation": [
+      "./manual/installation/installation.md",
+      "./manual/testing/testing.md"
+    ]
+  }
+}

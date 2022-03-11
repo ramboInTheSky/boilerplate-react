@@ -1,0 +1,10 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "This file is only for the organisation of dependencies for the e2e scripts.",
+  "main": "echo \"Don't use this command. Use `run e2e` from the top level.\"",
+  "scripts": {},
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {}
+}

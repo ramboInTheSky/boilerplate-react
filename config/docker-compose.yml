@@ -1,0 +1,52 @@
+version: '2'
+services:
+  e2e:
+    image: amidodevelopment/amido-docker-e2e:latest
+    volumes:
+      - ../e2e:/e2e
+    links:
+      - hub
+    depends_on:
+      - chrome
+      - firefox
+    extra_hosts:
+      - "dev:${HOMEIP}" 
+
+  hub:
+    image: selenium/hub:latest
+    ports:
+      - 4444:4444
+    logging:
+        driver: none
+    extra_hosts:
+      - "dev:${HOMEIP}" 
+
+  chrome:
+    image: selenium/node-chrome:latest
+    links:
+      - hub
+    restart: unless-stopped
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
+    depends_on:
+      - hub
+    logging:
+        driver: none
+    extra_hosts:
+      - "dev:${HOMEIP}" 
+
+  firefox:
+    image: selenium/node-firefox:latest
+    links:
+      - hub
+    restart: unless-stopped
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
+    depends_on:
+      - hub
+    logging:
+        driver: none
+    extra_hosts:
+      - "dev:${HOMEIP}" 
